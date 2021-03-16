@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbId = new System.Windows.Forms.TextBox();
+            this.tbId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbFirstName = new System.Windows.Forms.TextBox();
@@ -44,7 +44,7 @@
             this.tbPolishLang = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tbForeignLang = new System.Windows.Forms.TextBox();
-            this.cbAdditional = new System.Windows.Forms.CheckBox();
+            this.cbActivities = new System.Windows.Forms.CheckBox();
             this.rtbComments = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cbGroupId = new System.Windows.Forms.ComboBox();
@@ -53,13 +53,13 @@
             this.btnConfirm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lbId
+            // tbId
             // 
-            this.lbId.Location = new System.Drawing.Point(119, 22);
-            this.lbId.Name = "lbId";
-            this.lbId.ReadOnly = true;
-            this.lbId.Size = new System.Drawing.Size(206, 20);
-            this.lbId.TabIndex = 0;
+            this.tbId.Location = new System.Drawing.Point(119, 22);
+            this.tbId.Name = "tbId";
+            this.tbId.ReadOnly = true;
+            this.tbId.Size = new System.Drawing.Size(206, 20);
+            this.tbId.TabIndex = 0;
             // 
             // label1
             // 
@@ -182,16 +182,15 @@
             this.tbForeignLang.Size = new System.Drawing.Size(206, 20);
             this.tbForeignLang.TabIndex = 14;
             // 
-            // cbAdditional
+            // cbActivities
             // 
-            this.cbAdditional.AutoSize = true;
-            this.cbAdditional.Location = new System.Drawing.Point(119, 367);
-            this.cbAdditional.Name = "cbAdditional";
-            this.cbAdditional.Size = new System.Drawing.Size(117, 17);
-            this.cbAdditional.TabIndex = 16;
-            this.cbAdditional.Text = "Zajęcia dodatkowe";
-            this.cbAdditional.UseVisualStyleBackColor = true;
-            this.cbAdditional.CheckedChanged += new System.EventHandler(this.cbAdditional_CheckedChanged);
+            this.cbActivities.AutoSize = true;
+            this.cbActivities.Location = new System.Drawing.Point(119, 367);
+            this.cbActivities.Name = "cbActivities";
+            this.cbActivities.Size = new System.Drawing.Size(117, 17);
+            this.cbActivities.TabIndex = 16;
+            this.cbActivities.Text = "Zajęcia dodatkowe";
+            this.cbActivities.UseVisualStyleBackColor = true;
             // 
             // rtbComments
             // 
@@ -213,6 +212,11 @@
             // cbGroupId
             // 
             this.cbGroupId.FormattingEnabled = true;
+            this.cbGroupId.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4"});
             this.cbGroupId.Location = new System.Drawing.Point(119, 230);
             this.cbGroupId.Name = "cbGroupId";
             this.cbGroupId.Size = new System.Drawing.Size(206, 21);
@@ -258,7 +262,7 @@
             this.Controls.Add(this.cbGroupId);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.rtbComments);
-            this.Controls.Add(this.cbAdditional);
+            this.Controls.Add(this.cbActivities);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tbForeignLang);
             this.Controls.Add(this.label7);
@@ -274,9 +278,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbFirstName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lbId);
+            this.Controls.Add(this.tbId);
+            this.MaximumSize = new System.Drawing.Size(384, 532);
+            this.MinimumSize = new System.Drawing.Size(384, 532);
             this.Name = "AddEditStudent";
-            this.Text = "AddEditStudent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Dodawanie ucznia";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,7 +291,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox lbId;
+        private System.Windows.Forms.TextBox tbId;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbFirstName;
@@ -300,7 +307,7 @@
         private System.Windows.Forms.TextBox tbPolishLang;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbForeignLang;
-        private System.Windows.Forms.CheckBox cbAdditional;
+        private System.Windows.Forms.CheckBox cbActivities;
         private System.Windows.Forms.RichTextBox rtbComments;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbGroupId;
