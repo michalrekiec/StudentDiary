@@ -14,10 +14,13 @@ namespace StudentDiary
 {
     public partial class AddEditStudent : Form
     {
-        private string _filePath = Path.Combine(Environment.CurrentDirectory, "students.txt");
+        public delegate void MySimpleDelegate();
+        public event MySimpleDelegate StudentAdded;
+
+        //private string _filePath = Path.Combine(Environment.CurrentDirectory, "students.txt");
         private int _studentId;
 
-        private FileHelper<List<Student>> _fileHelper = new FileHelper<List<Student>>(Path.Combine(Environment.CurrentDirectory, "students.txt"));
+        private FileHelper<List<Student>> _fileHelper = new FileHelper<List<Student>>(Program.FilePath);
 
         public AddEditStudent(int id = 0)
         {
@@ -50,6 +53,11 @@ namespace StudentDiary
             }
 
             tbFirstName.Select();
+        }
+
+        private void OnStudentAdded()
+        {
+            StudentAdded?.Invoke();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -89,6 +97,8 @@ namespace StudentDiary
             students.Add(student);
 
             _fileHelper.SerializeToFile(students);
+
+            OnStudentAdded();
 
             Close();
         }

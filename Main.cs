@@ -14,9 +14,7 @@ namespace StudentDiary
 {
     public partial class Main : Form
     {
-        private string _filePath = Path.Combine(Environment.CurrentDirectory, "students.txt");
-
-        private FileHelper<List<Student>> _fileHelper = new FileHelper<List<Student>>(Path.Combine(Environment.CurrentDirectory, "students.txt"));
+        private FileHelper<List<Student>> _fileHelper = new FileHelper<List<Student>>(Program.FilePath);
 
         public Main()
         {
@@ -50,7 +48,14 @@ namespace StudentDiary
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var addEditStudent = new AddEditStudent();
+            addEditStudent.StudentAdded += AddEditStudent_StudentAdded;
             addEditStudent.ShowDialog();
+            addEditStudent.StudentAdded -= AddEditStudent_StudentAdded;
+        }
+
+        private void AddEditStudent_StudentAdded()
+        {
+            RefreshDiary();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
